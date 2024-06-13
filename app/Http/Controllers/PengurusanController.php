@@ -12,6 +12,8 @@ use App\Models\Rawatan;
 use App\Models\Ubatan;
 use App\Models\UjianMakmal;
 use App\Models\PermohonanPenambahan;
+use App\Models\PermohonanPerubahan;
+use App\Models\TindakanAgensi;
 use PDF;
 use Dompdf\Dompdf;
 use Dompdf\Options;
@@ -524,20 +526,18 @@ class PengurusanController extends Controller
         $ujianMakmal->delete();
         return redirect()->route('senarai-ujian-makmal')->with('message', 'Ujian Makmal deleted successfully');
     }
-    public function senaraiPermohonanPerubatan(Request $request){
+    public function senaraiPermohonanPenambahan(Request $request){
         $countPermohonan = 0;
-        $kemaskini = $request->input('kemaskini');
-        $profil = $request->input('profil');
-        $hapus = $request->input('hapus');
+        $permohonan = $request->input('permohonan');
         $carian = $request->input('carian');
         
         $listPermohonan = PermohonanPenambahan::with('keterangan')->where('application_date', 'like', "%$carian%")
             ->orWhere('application_no', 'like', "%$carian%")
             ->get();
         
-        return view('pages.permohonan-perubatan.index', compact('listPermohonan', 'countPermohonan', 'kemaskini', 'profil', 'hapus'));
+        return view('pages.permohonan-penambahan.index', compact('listPermohonan', 'countPermohonan', 'permohonan'));
     }
-    public function storePermohonanPerubatan(Request $request){
+    public function storePermohonanPenambahan(Request $request){
         $request->validate([
             'application_date' => 'required',
             'application_no' => 'required|string',
@@ -567,45 +567,197 @@ class PengurusanController extends Controller
                 ]);
             }
             
-            return redirect()->back()->with('message', 'Permohonan Perubatan information added successfully');
+            return redirect()->back()->with('message', 'Permohonan Penambahan information added successfully');
         } else {
-            return redirect()->back()->with('message', 'Failed to create Permohonan Perubatan');
+            return redirect()->back()->with('message', 'Failed to create Permohonan Penambahan');
         }
     }
-    public function updatePermohonanPerubatan(Request $request){
-
-        $request->validate([
-            'ujian_makmal_id' => 'required|integer',
-            'ujian_makmal_name' => 'required|string|max:255',
-            'ujian_makmal_amaun' => 'required|numeric',
-            'ujian_makmal_fk_clinic' => 'required|string',
-            'ujian_makmal_lab' => 'required|string|max:255',
-        ]);
-
-        $ujianMakmal = PermohonanPerubatan::find($request->ujian_makmal_id);
-        $ujianMakmal->ujian_makmal_name = $request->ujian_makmal_name;
-        $ujianMakmal->ujian_makmal_amaun = $request->ujian_makmal_amaun;
-        $ujianMakmal->ujian_makmal_fk_clinic = $request->ujian_makmal_fk_clinic;
-        $ujianMakmal->ujian_makmal_lab = $request->ujian_makmal_lab;
-        $ujianMakmal->ujian_makmal_status = $request->ujian_makmal_status;
-        $ujianMakmal->save();
-
-        return redirect()->back()->with('message', 'Ujian Makmal updated successfully');
-    }
-    public function deletePermohonanPerubatan(Request $request){
+    public function deletePermohonanPenambahan(Request $request){
         $request->validate([
             'ujian_makmal_id' => 'required|integer',
         ]);
-        $ujianMakmal = PermohonanPerubatan::find($request->ujian_makmal_id);
+        $ujianMakmal = PermohonanPenambahan::find($request->ujian_makmal_id);
         $ujianMakmal->delete();
         return redirect()->route('senarai-ujian-makmal')->with('message', 'Ujian Makmal deleted successfully');
     }
-
-    public function Invoice(Request $request){        
-        return view('invoice');
+    public function senaraiPermohonanPerubahan(Request $request){
+        $countPermohonan = 0;
+        $permohonan = $request->input('permohonan');
+        $carian = $request->input('carian');
+        
+        $listPermohonan = PermohonanPerubahan::with('keterangan')->where('application_date', 'like', "%$carian%")
+            ->orWhere('application_no', 'like', "%$carian%")
+            ->get();
+        
+        return view('pages.permohonan-perubahan.index', compact('listPermohonan', 'countPermohonan', 'permohonan'));
     }
-    public function Quotation(Request $request){        
-        return view('quotation');
+    public function storePermohonanPerubahan(Request $request){
+        $request->validate([
+            'application_date' => 'required',
+            'application_no' => 'required|string',
+            'application_fk_clinic' => 'required',
+            'application_fk_user' => 'required',
+            'application_type' => 'required|array',
+            'application_type.*' => 'required|string',
+            'application_item' => 'required|array',
+            'application_item.*' => 'required|string',
+            'application_amaun' => 'required|array',
+            'application_amaun.*' => 'required|numeric',
+        ]);
+        $permohonan = PermohonanPerubahan::create([
+            'application_date' => $request->application_date,
+            'application_no' => $request->application_no,
+            'application_fk_clinic' => $request->application_fk_clinic,
+            'application_fk_user' => $request->application_fk_user,
+            'application_status' => '1',
+        ]);
+
+        if ($permohonan) {
+            foreach ($request->application_type as $index => $type) {
+                $permohonan->keterangan()->create([
+                    'application_type' => $type,
+                    'application_item' => $request->application_item[$index],
+                    'application_amaun' => $request->application_amaun[$index],
+                ]);
+            }
+            
+            return redirect()->back()->with('message', 'Permohonan Perubahan information added successfully');
+        } else {
+            return redirect()->back()->with('message', 'Failed to create Permohonan Perubahan');
+        }
+    }
+    public function deletePermohonanPerubahan(Request $request){
+        $request->validate([
+            'ujian_makmal_id' => 'required|integer',
+        ]);
+        $ujianMakmal = PermohonanPerubahan::find($request->ujian_makmal_id);
+        $ujianMakmal->delete();
+        return redirect()->route('senarai-permohonan-perubahan')->with('message', 'Permohonan Perubahan deleted successfully');
+    }
+    public function senaraiPermohonanMaklumatRawatan(Request $request){
+        $countPermohonan = 0;
+        $countPenambahan = 0;
+        $countPerubahan = 0;
+        $tindakan = $request->input('tindakan');
+        $carian = $request->input('carian');
+        
+        $listPenambahan = PermohonanPenambahan::with('keterangan')
+            ->where('application_status', 1)
+            ->where(function($query) use ($carian) {
+                $query->where('application_date', 'like', "%$carian%")
+                      ->orWhere('application_no', 'like', "%$carian%");
+            })
+            ->get();
+
+        $listPerubahan = PermohonanPerubahan::with('keterangan')
+            ->where('application_status', 1)
+            ->where(function($query) use ($carian) {
+                $query->where('application_date', 'like', "%$carian%")
+                      ->orWhere('application_no', 'like', "%$carian%");
+            })
+            ->get();
+        
+        return view('pages.permohonan-maklumat-rawatan.index', compact('tindakan', 'countPermohonan', 'countPenambahan', 'countPerubahan', 'listPenambahan', 'listPerubahan'));
+    }
+    public function TindakanPenambahanAgensi(Request $request){
+        $request->validate([
+            'application_id' => 'required',
+            'application_status' => 'required',
+            'action_application_date' => 'required',
+            'action_application_remark' => 'required',
+            'action_application_officer' => 'required',
+            'action_application_role' => 'required',
+            'action_application_agensi_name' => 'required',
+        ]);
+
+        $penambahan = PermohonanPenambahan::find($request->application_id);
+        $penambahan->application_status = $request->application_status;
+        $penambahan->save();
+
+        $tindakan = new TindakanAgensi([
+            'action_application_date' => $request->action_application_date,
+            'action_application_remark' => $request->action_application_remark,
+            'action_application_officer' => $request->action_application_officer,
+            'action_application_role' => $request->action_application_role,
+            'action_application_agensi_name' => $request->action_application_agensi_name,
+        ]);
+
+        $penambahan->tindakanAgensis()->save($tindakan);
+
+        return redirect()->route('senarai-permohonan-maklumat-rawatan')->with('message', 'Tindakan added successfully');
+    }
+    public function TindakanPerubahanAgensi(Request $request){
+        $request->validate([
+            'application_id' => 'required',
+            'application_status' => 'required',
+            'action_application_date' => 'required',
+            'action_application_remark' => 'required',
+            'action_application_officer' => 'required',
+            'action_application_role' => 'required',
+            'action_application_agensi_name' => 'required',
+        ]);
+
+        $penambahan = PermohonanPerubahan::find($request->application_id);
+        $penambahan->application_status = $request->application_status;
+        $penambahan->save();
+
+        $tindakan = new TindakanAgensi([
+            'action_application_date' => $request->action_application_date,
+            'action_application_remark' => $request->action_application_remark,
+            'action_application_officer' => $request->action_application_officer,
+            'action_application_role' => $request->action_application_role,
+            'action_application_agensi_name' => $request->action_application_agensi_name,
+        ]);
+
+        $penambahan->tindakanAgensis()->save($tindakan);
+
+        return redirect()->route('senarai-permohonan-maklumat-rawatan')->with('message', 'Tindakan added successfully');
+    }
+    public function TindakanPenambahanDoktor(Request $request){
+        $request->validate([
+            'application_id' => 'required',
+            'application_status' => 'required',
+            'action_application_date' => 'required',
+            'action_application_remark' => 'required',
+            'action_application_officer' => 'required',
+        ]);
+
+        $penambahan = PermohonanPenambahan::find($request->application_id);
+        $penambahan->application_status = $request->application_status;
+        $penambahan->save();
+
+        $tindakan = new TindakanAgensi([
+            'action_application_date' => $request->action_application_date,
+            'action_application_remark' => $request->action_application_remark,
+            'action_application_officer' => $request->action_application_officer,
+        ]);
+
+        $penambahan->tindakanAgensis()->save($tindakan);
+
+        return redirect()->route('senarai-permohonan-maklumat-rawatan')->with('message', 'Tindakan added successfully');
+    }
+    public function TindakanPerubahanDoktor(Request $request){
+        $request->validate([
+            'application_id' => 'required',
+            'application_status' => 'required',
+            'action_application_date' => 'required',
+            'action_application_remark' => 'required',
+            'action_application_officer' => 'required',
+        ]);
+
+        $penambahan = PermohonanPerubahan::find($request->application_id);
+        $penambahan->application_status = $request->application_status;
+        $penambahan->save();
+
+        $tindakan = new TindakanAgensi([
+            'action_application_date' => $request->action_application_date,
+            'action_application_remark' => $request->action_application_remark,
+            'action_application_officer' => $request->action_application_officer,
+        ]);
+
+        $penambahan->tindakanAgensis()->save($tindakan);
+
+        return redirect()->route('senarai-permohonan-maklumat-rawatan')->with('message', 'Tindakan added successfully');
     }
 
 }

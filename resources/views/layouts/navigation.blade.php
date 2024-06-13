@@ -41,21 +41,6 @@
                             {{ __('Agensi') }}
                         </x-nav-link>
                     @endif
-
-                    <!-- @if (Auth::check() && Auth::user()->role === 'Klinik')
-                        <x-nav-link :href="route('senarai-klinik')" :active="request()->routeIs('senarai-klinik')">
-                            {{ __('Senarai Klinik') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('senarai-pengguna-klinik')" :active="request()->routeIs('senarai-pengguna-klinik')">
-                            {{ __('Senarai Pengguna Klinik') }}
-                        </x-nav-link>
-                    @endif
-
-                    @if (Auth::check() && Auth::user()->role === 'Admin JU')
-                        <x-nav-link :href="route('pengurusan-profil-bod')" :active="request()->routeIs('pengurusan-profil-bod')">
-                            {{ __('Pengurusan Profil BOD') }}
-                        </x-nav-link>
-                    @endif -->
                 </div>
             </div>
 
@@ -79,7 +64,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('pengurusan-profil-bod')">
+                        <x-dropdown-link :href="route('senarai-profil-bod')">
                             {{ __('Senarai BOD') }}
                         </x-dropdown-link>
                         <x-dropdown-link :href="route('senarai-klinik')">
@@ -100,8 +85,14 @@
                         <x-dropdown-link :href="route('senarai-ujian-makmal')">
                             {{ __('Senarai Ujian Makmal') }}
                         </x-dropdown-link>
-                        <x-dropdown-link :href="route('senarai-permohonan-perubatan')">
-                            {{ __('Senarai Permohonan Perubatan') }}
+                        <x-dropdown-link :href="route('senarai-permohonan-penambahan')">
+                            {{ __('Senarai Permohonan Penambahan') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('senarai-permohonan-perubahan')">
+                            {{ __('Senarai Permohonan Perubahan') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('senarai-permohonan-maklumat-rawatan')">
+                            {{ __('Senarai Permohonan Maklumat Rawatan') }}
                         </x-dropdown-link>
                         <!-- <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}

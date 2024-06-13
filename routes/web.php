@@ -67,7 +67,7 @@ Route::middleware(['auth', 'role:Agensi'])->group(function () {
 // });
 
 Route::middleware(['auth', 'role:Admin JU'])->group(function () {
-    Route::get('/pengurusan-profil-bod', [PengurusanController::class, 'senaraiBOD'])->name('pengurusan-profil-bod');
+    Route::get('/senarai-profil-bod', [PengurusanController::class, 'senaraiBOD'])->name('senarai-profil-bod');
     Route::post('/store/bod', [PengurusanController::class,'storeBOD'])->name('store.bod');
     Route::post('/update/bod', [PengurusanController::class,'updateBOD'])->name('update.bod');
     Route::post('/delete/bod', [PengurusanController::class,'deleteBOD'])->name('delete.bod');
@@ -98,10 +98,17 @@ Route::middleware(['auth', 'role:Admin JU'])->group(function () {
     Route::post('/store/ujian-makmal', [PengurusanController::class, 'storeUjianMakmal'])->name('store.ujian-makmal');
     Route::post('/update/ujian-makmal', [PengurusanController::class, 'updateUjianMakmal'])->name('update.ujian-makmal');
     Route::post('/delete/ujian-makmal', [PengurusanController::class, 'deleteUjianMakmal'])->name('delete.ujian-makmal');
-    Route::get('/senarai-permohonan-perubatan', [PengurusanController::class, 'senaraiPermohonanPerubatan'])->name('senarai-permohonan-perubatan');
-    Route::post('/store/permohonan-perubatan', [PengurusanController::class, 'storePermohonanPerubatan'])->name('store.permohonan-perubatan');
-    Route::post('/update/permohonan-perubatan', [PengurusanController::class, 'updatePermohonanPerubatan'])->name('update.permohonan-perubatan');
-    Route::post('/delete/permohonan-perubatan', [PengurusanController::class, 'deletePermohonanPerubatan'])->name('delete.permohonan-perubatan');
+    Route::get('/senarai-permohonan-penambahan', [PengurusanController::class, 'senaraiPermohonanPenambahan'])->name('senarai-permohonan-penambahan');
+    Route::post('/store/permohonan-penambahan', [PengurusanController::class, 'storePermohonanPenambahan'])->name('store.permohonan-penambahan');
+    Route::post('/delete/permohonan-penambahan', [PengurusanController::class, 'deletePermohonanPenambahan'])->name('delete.permohonan-penambahan');
+    Route::get('/senarai-permohonan-perubahan', [PengurusanController::class, 'senaraiPermohonanPerubahan'])->name('senarai-permohonan-perubahan');
+    Route::post('/store/permohonan-perubahan', [PengurusanController::class, 'storePermohonanPerubahan'])->name('store.permohonan-perubahan');
+    Route::post('/delete/permohonan-perubahan', [PengurusanController::class, 'deletePermohonanPerubahan'])->name('delete.permohonan-perubahan');
+    Route::get('/senarai-permohonan-maklumat-rawatan', [PengurusanController::class, 'senaraiPermohonanMaklumatRawatan'])->name('senarai-permohonan-maklumat-rawatan');
+    Route::post('/store/tindakan-agensi/permohonan', [PengurusanController::class, 'TindakanPenambahanAgensi'])->name('store.tindakan-penambahan-agensi');
+    Route::post('/store/tindakan-agensi/perubahan', [PengurusanController::class, 'TindakanPerubahanAgensi'])->name('store.tindakan-perubahan-agensi');
+    Route::post('/store/tindakan-doktor/permohonan', [PengurusanController::class, 'TindakanPenambahanDoktor'])->name('store.tindakan-penambahan-doktor');
+    Route::post('/store/tindakan-doktor/perubahan', [PengurusanController::class, 'TindakanPerubahanDoktor'])->name('store.tindakan-perubahan-doktor');
 });
 
 

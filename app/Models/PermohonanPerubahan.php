@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PermohonanPenambahan extends Model
+class PermohonanPerubahan extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    protected $table = 'permohonan_penambahans';
+    protected $table = 'permohonan_perubahans';
     protected $fillable = [
         'application_date',
         'application_no',
@@ -17,7 +17,7 @@ class PermohonanPenambahan extends Model
         'application_fk_user',
         'application_status',
     ];
-    
+
     public function tindakanAgensis()
     {
         return $this->morphMany(TindakanAgensi::class, 'actionable');
@@ -27,10 +27,10 @@ class PermohonanPenambahan extends Model
     {
         return $this->morphMany(TindakanDoktor::class, 'actionable');
     }
-
+    
     public function keterangan()
     {
-        return $this->hasMany(KeteranganPenambahan::class, 'fk_application');
+        return $this->hasMany(KeteranganPerubahan::class, 'fk_application');
     }
 
     public function users()
