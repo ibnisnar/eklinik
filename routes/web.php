@@ -10,6 +10,10 @@ Route::get('/', function () {
 
 Route::get('/laman-utama', function () {
     return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/laman-utama', function () {
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('laman-utama');
 Route::get('/invoice', function () {
     return view('invoice');
