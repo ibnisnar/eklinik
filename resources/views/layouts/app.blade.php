@@ -29,7 +29,7 @@
             <!-- Page Heading -->
             @isset($header)
                 <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <div class="py-6 px-4 sm:px-6 lg:px-8">
                         <nav class="flex" aria-label="Breadcrumb">
                             <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                                 <li class="inline-flex items-center">
@@ -46,7 +46,7 @@
                     </div>
                 </header>
                 @if(Session::has('message'))
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6">
+                <div class="sm:px-6 lg:px-8 mt-6">
                     <div id="alert-message" tabindex="-1" class="flex rounded-lg justify-between w-full p-4 border border-green-300 bg-green-200 dark:bg-green-700 dark:border-green-600">
                         <div class="flex items-center mx-auto">
                             <p class="flex items-center text-sm font-normal text-green-500 dark:text-green-400">
