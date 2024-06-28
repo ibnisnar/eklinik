@@ -1,29 +1,11 @@
 <x-app-layout>
-    <div class="py-12">
+    <div class="py-5">
         <div class="sm:px-6 lg:px-8">
             @if($kemaskini)
                 @php
                     $ujianMakmal = App\Models\UjianMakmal::where('id', $kemaskini)->first();
                 @endphp
-                <x-slot name="header">
-                    <li>
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <a href="{{ route('senarai-ujian-makmal') }}" class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Pengurusan Ujian Makmal</a>
-                      </div>
-                    </li>
-                    <li aria-current="page">
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">{{ $ujianMakmal->ujian_makmal_name }}</span>
-                      </div>
-                    </li>
-                </x-slot>
-                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Maklumat Ujian Makmal</h5>
                     </div>
@@ -180,25 +162,7 @@
                 @php
                     $ujianMakmal = App\Models\UjianMakmal::where('id', $profil)->first();
                 @endphp
-                <x-slot name="header">
-                    <li>
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <a href="{{ route('senarai-ujian-makmal') }}" class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Pengurusan Ujian Makmal</a>
-                      </div>
-                    </li>
-                    <li aria-current="page">
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">{{ $ujianMakmal->ujian_makmal_name }}</span>
-                      </div>
-                    </li>
-                </x-slot>
-                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Maklumat Ujian Makmal</h5>
                     </div>
@@ -349,25 +313,7 @@
                 @php
                     $ujianMakmal = App\Models\UjianMakmal::where('id', $hapus)->first();
                 @endphp
-                <x-slot name="header">
-                    <li>
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <a href="{{ route('senarai-ujian-makmal') }}" class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Pengurusan Ujian Makmal</a>
-                      </div>
-                    </li>
-                    <li aria-current="page">
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">{{ $ujianMakmal->ujian_makmal_name }}</span>
-                      </div>
-                    </li>
-                </x-slot>
-                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Maklumat Ujian Makmal</h5>
                     </div>
@@ -487,17 +433,7 @@
                     </div>
                 </div>
             @else
-                <x-slot name="header">
-                    <li aria-current="page">
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Pengurusan Ujian Makmal</span>
-                      </div>
-                    </li>
-                </x-slot>
-                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Senarai Ujian Makmal</h5>
                         <div class="flex gap-2"> 

@@ -1,29 +1,11 @@
 <x-app-layout>
-    <div class="py-12">
+    <div class="py-5">
         <div class="sm:px-6 lg:px-8">
             @if($idpekerja)
                 @php
                     $malumatBOD = App\Models\ProfilBod::where('id', $idpekerja)->first();
                 @endphp
-                <x-slot name="header">
-                    <li>
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <a href="{{ route('senarai-profil-bod') }}" class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Pengurusan Profil BOD</a>
-                      </div>
-                    </li>
-                    <li aria-current="page">
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">{{ $malumatBOD->bod_dependents_name }}</span>
-                      </div>
-                    </li>
-                </x-slot>
-                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Maklumat Profil BOD</h5>
                         <button x-data="" x-on:click.prevent="$dispatch('open-modal', 'tambah-profil-tanggungan-bod')" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Tambah Tanggungan</button>
@@ -85,7 +67,7 @@
                     <div class="flow-root">
                         <div class="relative rounded">
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-white bg-opacity-30 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-30  dark:border-gray-700 dark:text-gray-400  sm:rounded-lg">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Nama
@@ -118,49 +100,49 @@
                                         </td>
                                         <td class="px-6 py-4 flex gap-2 justify-end">
                                             <!-- Kemaskini Profil -->
-                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" x-data="" href="{{ route('senarai-profil-bod', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" x-data="" href="{{ route('senarai-profil-bod', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="kemaskini-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="kemaskini-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Kemaskini Profil</p>
                                                 </div>
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Lihat Profil -->
-                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
                                                     <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="lihat-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="lihat-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Lihat Profil</p>
                                                 </div>
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Tanggungan Profil -->
-                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 dark:bg-gray-800 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="tanggungan-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="tanggungan-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Tanggungan Profil</p>
                                                 </div>
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Padam Profil -->
-                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="padam-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="padam-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Padam Profil</p>
                                                 </div>
@@ -168,7 +150,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="text-center odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <tr class="text-center bg-transparent border-b dark:border-gray-700">
                                         <td colspan="5" class="p-5 text-left">
                                             @php
                                                 $countTanggungan = 0;
@@ -182,9 +164,6 @@
                                                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                                         <tr>
-                                                            <th scope="col" class="px-6 py-3">
-                                                                Bill
-                                                            </th>
                                                             <th scope="col" class="px-6 py-3">
                                                                 Nama Tanggungan
                                                             </th>
@@ -227,12 +206,12 @@
                                                                     </td>
                                                                     <td class="px-6 py-4 space-x-1 text-right">
                                                                         <!-- Kemaskini Profil -->
-                                                                        <button data-popover-target="kemaskini-tanggungan-{{ $tanggungan->id }}" data-popover-placement="top" x-data="" x-on:click.prevent="$dispatch('open-modal', 'kemaskini-tanggungan-bod-{{ $tanggungan->id }}')" type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                                                        <button data-popover-target="kemaskini-tanggungan-{{ $tanggungan->id }}" data-popover-placement="top" x-data="" x-on:click.prevent="$dispatch('open-modal', 'kemaskini-tanggungan-bod-{{ $tanggungan->id }}')" type="button" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                                             <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
                                                                             </svg>
                                                                         </button>
-                                                                        <div data-popover id="kemaskini-tanggungan-{{ $tanggungan->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                                                        <div data-popover id="kemaskini-tanggungan-{{ $tanggungan->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                                             <div class="px-3 py-2">
                                                                                 <p>Kemaskini Profil</p>
                                                                             </div>
@@ -293,13 +272,13 @@
                                                                             </form>
                                                                         </x-modal>
                                                                         <!-- Lihat Profil -->
-                                                                        <button data-popover-target="lihat-tanggungan-{{ $tanggungan->id }}" data-popover-placement="top" x-data="" x-on:click.prevent="$dispatch('open-modal', 'lihat-tanggungan-bod-{{ $tanggungan->id }}')" type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                                                        <button data-popover-target="lihat-tanggungan-{{ $tanggungan->id }}" data-popover-placement="top" x-data="" x-on:click.prevent="$dispatch('open-modal', 'lihat-tanggungan-bod-{{ $tanggungan->id }}')" type="button" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                                             <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                                                 <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
                                                                                 <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                                                                             </svg>
                                                                         </button>
-                                                                        <div data-popover id="lihat-tanggungan-{{ $tanggungan->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                                                        <div data-popover id="lihat-tanggungan-{{ $tanggungan->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                                             <div class="px-3 py-2">
                                                                                 <p>Lihat Profil</p>
                                                                             </div>
@@ -367,12 +346,12 @@
                                                                             </div>
                                                                         </x-modal>
                                                                         <!-- Padam Profil -->
-                                                                        <button data-popover-target="padam-profil-{{ $tanggungan->id }}" data-popover-placement="top" x-data="" x-on:click.prevent="$dispatch('open-modal', 'padam-profil-bod-{{ $tanggungan->id }}')" type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                                                        <button data-popover-target="padam-profil-{{ $tanggungan->id }}" data-popover-placement="top" x-data="" x-on:click.prevent="$dispatch('open-modal', 'padam-profil-bod-{{ $tanggungan->id }}')" type="button" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                                             <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
                                                                             </svg>
                                                                         </button>
-                                                                        <div data-popover id="padam-profil-{{ $tanggungan->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                                                        <div data-popover id="padam-profil-{{ $tanggungan->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                                             <div class="px-3 py-2">
                                                                                 <p>Padam Profil</p>
                                                                             </div>
@@ -408,7 +387,7 @@
                                                 </table>
                                             </div>
                                             <div class="mt-6 flex justify-end">
-                                                <a href="{{ route('senarai-profil-bod') }}" class="inline-flex items-center px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
+                                                <a href="{{ route('senarai-profil-bod') }}" class="inline-flex items-center px-4 py-2 bg-white dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
                                                     {{ __('Kembali') }}
                                                 </a>
                                             </div>
@@ -423,32 +402,14 @@
                 @php
                     $malumatBOD = App\Models\ProfilBod::where('id', $kemaskini)->first();
                 @endphp
-                <x-slot name="header">
-                    <li>
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <a href="{{ route('senarai-profil-bod') }}" class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Pengurusan Profil BOD</a>
-                      </div>
-                    </li>
-                    <li aria-current="page">
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">{{ $malumatBOD->bod_dependents_name }}</span>
-                      </div>
-                    </li>
-                </x-slot>
-                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Maklumat Profil BOD</h5>
                     </div>
                     <div class="flow-root">
                         <div class="relative rounded">
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-white bg-opacity-30 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-30  dark:border-gray-700 dark:text-gray-400  sm:rounded-lg">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Nama
@@ -465,7 +426,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="accordion-collapse" data-accordion="collapse">
-                                    <tr id="tanggungan-heading-{{ $malumatBOD->id }}" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <tr id="tanggungan-heading-{{ $malumatBOD->id }}">
                                         <td class="px-6 py-4">
                                             {{ $malumatBOD->bod_dependents_name }}
                                         </td>
@@ -481,49 +442,49 @@
                                         </td>
                                         <td class="px-6 py-4 flex gap-2 justify-end">
                                             <!-- Kemaskini Profil -->
-                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" x-data="" href="{{ route('senarai-profil-bod', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" x-data="" href="{{ route('senarai-profil-bod', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="kemaskini-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="kemaskini-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Kemaskini Profil</p>
                                                 </div>
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Lihat Profil -->
-                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
                                                     <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="lihat-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="lihat-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Lihat Profil</p>
                                                 </div>
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Tanggungan Profil -->
-                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 dark:bg-gray-800 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="tanggungan-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="tanggungan-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Tanggungan Profil</p>
                                                 </div>
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Padam Profil -->
-                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="padam-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="padam-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Padam Profil</p>
                                                 </div>
@@ -531,7 +492,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="text-center odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <tr class="text-center bg-transparent border-b dark:border-gray-700">
                                         <td colspan="5" class="p-2 text-left">
                                             <form method="post" action="{{ route('update.bod') }}" class="text-left p-6">
                                                 @csrf
@@ -567,7 +528,7 @@
                                                 </div>
 
                                                 <div class="mt-6 flex justify-end">
-                                                    <a href="{{ route('senarai-profil-bod') }}" class="inline-flex items-center px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
+                                                    <a href="{{ route('senarai-profil-bod') }}" class="inline-flex items-center px-4 py-2 bg-white dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
                                                         {{ __('Kembali') }}
                                                     </a>
 
@@ -587,32 +548,14 @@
                 @php
                     $malumatBOD = App\Models\ProfilBod::where('id', $profil)->first();
                 @endphp
-                <x-slot name="header">
-                    <li>
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <a href="{{ route('senarai-profil-bod') }}" class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Pengurusan Profil BOD</a>
-                      </div>
-                    </li>
-                    <li aria-current="page">
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">{{ $malumatBOD->bod_dependents_name }}</span>
-                      </div>
-                    </li>
-                </x-slot>
-                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Maklumat Profil BOD</h5>
                     </div>
                     <div class="flow-root">
                         <div class="relative rounded">
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-white bg-opacity-30 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-30  dark:border-gray-700 dark:text-gray-400  sm:rounded-lg">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Nama
@@ -629,7 +572,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="accordion-collapse" data-accordion="collapse">
-                                    <tr id="tanggungan-heading-{{ $malumatBOD->id }}" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <tr id="tanggungan-heading-{{ $malumatBOD->id }}" >
                                         <td class="px-6 py-4">
                                             {{ $malumatBOD->bod_dependents_name }}
                                         </td>
@@ -645,49 +588,49 @@
                                         </td>
                                         <td class="px-6 py-4 flex gap-2 justify-end">
                                             <!-- Kemaskini Profil -->
-                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="kemaskini-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="kemaskini-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Kemaskini Profil</p>
                                                 </div>
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Lihat Profil -->
-                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
                                                     <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="lihat-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="lihat-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Lihat Profil</p>
                                                 </div>
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Tanggungan Profil -->
-                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 dark:bg-gray-800 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="tanggungan-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="tanggungan-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Tanggungan Profil</p>
                                                 </div>
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Padam Profil -->
-                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="padam-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="padam-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Padam Profil</p>
                                                 </div>
@@ -759,7 +702,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="mt-6 flex justify-end">
-                                                    <a href="{{ route('senarai-profil-bod') }}" class="inline-flex items-center px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
+                                                    <a href="{{ route('senarai-profil-bod') }}" class="inline-flex items-center px-4 py-2 bg-white dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
                                                         {{ __('Kembali') }}
                                                     </a>    
                                                 </div>
@@ -775,32 +718,14 @@
                 @php
                     $malumatBOD = App\Models\ProfilBod::where('id', $hapus)->first();
                 @endphp
-                <x-slot name="header">
-                    <li>
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <a href="{{ route('senarai-profil-bod') }}" class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Pengurusan Profil BOD</a>
-                      </div>
-                    </li>
-                    <li aria-current="page">
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">{{ $malumatBOD->bod_dependents_name }}</span>
-                      </div>
-                    </li>
-                </x-slot>
-                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Maklumat Profil BOD</h5>
                     </div>
                     <div class="flow-root">
                         <div class="relative rounded">
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-white bg-opacity-30 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-30  dark:border-gray-700 dark:text-gray-400  sm:rounded-lg">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Nama
@@ -833,49 +758,49 @@
                                         </td>
                                         <td class="px-6 py-4 flex gap-2 justify-end">
                                             <!-- Kemaskini Profil -->
-                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="kemaskini-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="kemaskini-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Kemaskini Profil</p>
                                                 </div>
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Lihat Profil -->
-                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
                                                     <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="lihat-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="lihat-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Lihat Profil</p>
                                                 </div>
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Tanggungan Profil -->
-                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 dark:bg-gray-800 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="tanggungan-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="tanggungan-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Tanggungan Profil</p>
                                                 </div>
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Padam Profil -->
-                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
                                                 </svg>
                                             </a>
-                                            <div data-popover id="padam-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                            <div data-popover id="padam-profil-{{ $malumatBOD->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                 <div class="px-3 py-2">
                                                     <p>Padam Profil</p>
                                                 </div>
@@ -911,7 +836,7 @@
                                                 </div>
 
                                                 <div class="mt-6 flex justify-end">
-                                                    <a href="{{ route('senarai-profil-bod') }}" class="inline-flex items-center px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
+                                                    <a href="{{ route('senarai-profil-bod') }}" class="inline-flex items-center px-4 py-2 bg-white dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
                                                         {{ __('Kembali') }}
                                                     </a> 
 
@@ -928,17 +853,7 @@
                     </div>
                 </div>
             @else
-                <x-slot name="header">
-                    <li aria-current="page">
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Pengurusan Profil BOD</span>
-                      </div>
-                    </li>
-                </x-slot>
-                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Senarai BOD</h5>
                         <div class="flex gap-2"> 
@@ -950,7 +865,7 @@
                                           <path stroke="currentColor" stroke-width="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                                         </svg>
                                     </div>
-                                    <input type="text" id="search" name="carian" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="{{ request()->has('carian') ? request()->carian : 'Search' }}" required />
+                                    <input type="text" id="search" name="carian" class="bg-transparent text-gray-900 text-sm rounded-lg focus:ring-blue-500 block w-full ps-10 p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500" placeholder="{{ request()->has('carian') ? request()->carian : 'Search' }}" required />
                                     @if(request()->has('carian'))
                                         <a href="{{ route('senarai-profil-bod') }}" class="absolute inset-y-0 end-0 flex items-center pe-3">
                                             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -1008,9 +923,9 @@
                         </div>
                     </div>
                     <div class="flow-root">
-                        <div class="relative rounded">
-                            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <div class="relative rounded-lg">
+                            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 sm:rounded-lg">
+                                <thead class="text-xs text-gray-700 uppercase bg-white bg-opacity-30 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-30  dark:border-gray-700 dark:text-gray-400  sm:rounded-lg">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Bill
@@ -1038,7 +953,7 @@
                                         </tr>
                                     @else
                                         @foreach($listBOD as $bod)
-                                            <tr id="tanggungan-heading-{{ $bod->id }}" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                            <tr id="tanggungan-heading-{{ $bod->id }}" class="">
                                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     {{++$countBOD}}
                                                 </th>
@@ -1057,49 +972,49 @@
                                                 </td>
                                                 <td class="px-6 py-4 flex gap-2 justify-end">
                                                     <!-- Kemaskini Profil -->
-                                                    <a data-popover-target="kemaskini-profil-{{ $bod->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['kemaskini' => $bod->id ]) }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                                    <a data-popover-target="kemaskini-profil-{{ $bod->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['kemaskini' => $bod->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
                                                         </svg>
                                                     </a>
-                                                    <div data-popover id="kemaskini-profil-{{ $bod->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                                    <div data-popover id="kemaskini-profil-{{ $bod->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                         <div class="px-3 py-2">
                                                             <p>Kemaskini Profil</p>
                                                         </div>
                                                         <div data-popper-arrow></div>
                                                     </div>
                                                     <!-- Lihat Profil -->
-                                                    <a data-popover-target="lihat-profil-{{ $bod->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['profil' => $bod->id ]) }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                                    <a data-popover-target="lihat-profil-{{ $bod->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['profil' => $bod->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                             <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
                                                             <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                                                         </svg>
                                                     </a>
-                                                    <div data-popover id="lihat-profil-{{ $bod->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                                    <div data-popover id="lihat-profil-{{ $bod->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                         <div class="px-3 py-2">
                                                             <p>Lihat Profil</p>
                                                         </div>
                                                         <div data-popper-arrow></div>
                                                     </div>
                                                     <!-- Tanggungan Profil -->
-                                                    <a data-popover-target="tanggungan-profil-{{ $bod->id }}" data-popover-placement="top" data-twe-ripple-init data-twe-ripple-color="light" href="{{ route('senarai-profil-bod', ['idpekerja' => $bod->id]) }}" class="inline-flex items-center gap-2 text-gray-900 dark:bg-gray-800 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                                    <a data-popover-target="tanggungan-profil-{{ $bod->id }}" data-popover-placement="top" data-twe-ripple-init data-twe-ripple-color="light" href="{{ route('senarai-profil-bod', ['idpekerja' => $bod->id]) }}" class="inline-flex items-center gap-2 text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
                                                         </svg>
                                                     </a>
-                                                    <div data-popover id="tanggungan-profil-{{ $bod->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                                    <div data-popover id="tanggungan-profil-{{ $bod->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                         <div class="px-3 py-2">
                                                             <p>Tanggungan Profil</p>
                                                         </div>
                                                         <div data-popper-arrow></div>
                                                     </div>
                                                     <!-- Padam Profil -->
-                                                    <a data-popover-target="padam-profil-{{ $bod->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['hapus' => $bod->id ]) }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                                    <a data-popover-target="padam-profil-{{ $bod->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['hapus' => $bod->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600">
                                                         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
                                                         </svg>
                                                     </a>
-                                                    <div data-popover id="padam-profil-{{ $bod->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                                    <div data-popover id="padam-profil-{{ $bod->id }}" role="tooltip" class="absolute z-10 invisible inline-block text-md font-medium text-gray-600 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400">
                                                         <div class="px-3 py-2">
                                                             <p>Padam Profil</p>
                                                         </div>

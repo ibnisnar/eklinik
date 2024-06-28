@@ -1,36 +1,18 @@
 <x-app-layout>
-    <div class="py-12">
+    <div class="py-5">
         <div class="sm:px-6 lg:px-8">
             @if($kemaskini)
                 @php
                     $maklumatKlinik = App\Models\Klinik::where('id', $kemaskini)->first();
                 @endphp
-                <x-slot name="header">
-                    <li>
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <a href="{{ route('senarai-klinik') }}" class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Pengurusan Klinik</a>
-                      </div>
-                    </li>
-                    <li aria-current="page">
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">{{ $maklumatKlinik->clinic_name }}</span>
-                      </div>
-                    </li>
-                </x-slot>
-                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Maklumat Klinik</h5>
                     </div>
                     <div class="flow-root">
                         <div class="relative rounded">
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 bg-opacity-50 dark:bg-gray-700 dark:bg-opacity-50 dark:text-gray-400">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Nama
@@ -56,7 +38,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="accordion-collapse" data-accordion="collapse">
-                                    <tr id="tanggungan-heading-{{ $maklumatKlinik->id }}" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <tr id="tanggungan-heading-{{ $maklumatKlinik->id }}" class="">
                                         <td class="px-6 py-4">
                                             {{ $maklumatKlinik->clinic_name }}
                                         </td>
@@ -115,7 +97,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="text-center odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <tr class="text-center ">
                                         <td colspan="9" class="p-2 text-left">
                                             <form method="post" action="{{ route('update.klinik') }}" class="text-left p-6">
                                                 @csrf
@@ -175,32 +157,14 @@
                 @php
                     $maklumatKlinik = App\Models\Klinik::where('id', $profil)->first();
                 @endphp
-                <x-slot name="header">
-                    <li>
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <a href="{{ route('senarai-klinik') }}" class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Pengurusan Klinik</a>
-                      </div>
-                    </li>
-                    <li aria-current="page">
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">{{ $maklumatKlinik->clinic_name }}</span>
-                      </div>
-                    </li>
-                </x-slot>
-                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Maklumat Klinik</h5>
                     </div>
                     <div class="flow-root">
                         <div class="relative rounded">
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 bg-opacity-50 dark:bg-gray-700 dark:bg-opacity-50 dark:text-gray-400">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Nama
@@ -226,7 +190,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="accordion-collapse" data-accordion="collapse">
-                                    <tr id="tanggungan-heading-{{ $maklumatKlinik->id }}" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <tr id="tanggungan-heading-{{ $maklumatKlinik->id }}" class="">
                                         <td class="px-6 py-4">
                                             {{ $maklumatKlinik->clinic_name }}
                                         </td>
@@ -285,7 +249,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="text-center odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <tr class="text-center ">
                                         <td colspan="9" class="p-2 text-left">
                                             <div class="text-left p-6">
                                                 <div class="grid grid-cols-2 gap-4">
@@ -362,32 +326,14 @@
                 @php
                     $maklumatKlinik = App\Models\Klinik::where('id', $hapus)->first();
                 @endphp
-                <x-slot name="header">
-                    <li>
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <a href="{{ route('senarai-klinik') }}" class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Pengurusan Klinik</a>
-                      </div>
-                    </li>
-                    <li aria-current="page">
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">{{ $maklumatKlinik->clinic_name }}</span>
-                      </div>
-                    </li>
-                </x-slot>
-                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Maklumat Klinik</h5>
                     </div>
                     <div class="flow-root">
                         <div class="relative rounded">
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 bg-opacity-50 dark:bg-gray-700 dark:bg-opacity-50 dark:text-gray-400">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Nama
@@ -413,7 +359,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="accordion-collapse" data-accordion="collapse">
-                                    <tr id="tanggungan-heading-{{ $maklumatKlinik->id }}" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <tr id="tanggungan-heading-{{ $maklumatKlinik->id }}" class="">
                                         <td class="px-6 py-4">
                                             {{ $maklumatKlinik->clinic_name }}
                                         </td>
@@ -472,7 +418,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="text-center odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <tr class="text-center ">
                                         <td colspan="9" class="p-2 text-left">
                                             <form method="post" action="{{ route('delete.klinik') }}" class="text-left p-6">
                                                 @csrf
@@ -515,17 +461,7 @@
                     </div>
                 </div>
             @else
-                <x-slot name="header">
-                    <li aria-current="page">
-                      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Pengurusan Klinik</span>
-                      </div>
-                    </li>
-                </x-slot>
-                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Senarai Klinik</h5>
                         <div class="flex gap-2"> 
@@ -601,7 +537,7 @@
                     <div class="flow-root">
                         <div class="relative rounded">
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 bg-opacity-50 dark:bg-gray-700 dark:bg-opacity-50 dark:text-gray-400">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Bill
@@ -638,7 +574,7 @@
                                         </tr>
                                     @else
                                         @foreach($listKlinik as $klinik)
-                                            <tr id="tanggungan-heading-{{ $klinik->id }}" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                            <tr id="tanggungan-heading-{{ $klinik->id }}" class="">
                                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     {{++$countKlinik}}
                                                 </th>

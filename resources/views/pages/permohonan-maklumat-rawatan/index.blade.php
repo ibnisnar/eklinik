@@ -12,27 +12,9 @@
         @endphp
 
         @if($penambahan)
-            <x-slot name="header">
-                <li>
-                  <div class="flex items-center">
-                    <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                    </svg>
-                    <a href="{{ route('senarai-permohonan-penambahan') }}" class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Permohonan Penambahan</a>
-                  </div>
-                </li>
-                <li aria-current="page">
-                  <div class="flex items-center">
-                    <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                    </svg>
-                    <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">#{{ $penambahan->application_no }}</span>
-                  </div>
-                </li>
-            </x-slot>
-            <div class="py-12">
+            <div class="py-5">
                 <div class="sm:px-6 lg:px-8 space-y-5">
-                    <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                         <div class="flex items-center justify-between mb-4">
                             <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Maklumat Permohonan</h5>
                         </div>
@@ -130,7 +112,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                         <div class="flex items-center justify-between mb-4">
                             <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Tindakan Agensi</h5>
                         </div>
@@ -200,27 +182,9 @@
                 </div>
             </div>
         @elseif($perubahan)
-            <x-slot name="header">
-                <li>
-                  <div class="flex items-center">
-                    <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                    </svg>
-                    <a href="{{ route('senarai-permohonan-penambahan') }}" class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Permohonan Penambahan</a>
-                  </div>
-                </li>
-                <li aria-current="page">
-                  <div class="flex items-center">
-                    <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                    </svg>
-                    <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">#{{ $perubahan->application_no }}</span>
-                  </div>
-                </li>
-            </x-slot>
-            <div class="py-12">
+            <div class="py-5">
                 <div class="sm:px-6 lg:px-8 space-y-5">
-                    <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                         <div class="flex items-center justify-between mb-4">
                             <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Maklumat Permohonan</h5>
                         </div>
@@ -318,7 +282,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                         <div class="flex items-center justify-between mb-4">
                             <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Tindakan Agensi</h5>
                         </div>
@@ -389,19 +353,9 @@
             </div>
         @endif
     @else
-        <x-slot name="header">
-            <li aria-current="page">
-              <div class="flex items-center">
-                <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                </svg>
-                <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Permohonan Maklumat Rawatan</span>
-              </div>
-            </li>
-        </x-slot>
-        <div class="py-12">
+        <div class="py-5">
             <div class="sm:px-6 lg:px-8 space-y-5">
-                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Senarai Permohonan Penambahan Maklumat Rawatan</h5>
                         <div class="flex gap-2"> 
@@ -540,7 +494,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white bg-opacity-50 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-50 dark:border-gray-700 sm:p-8">
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Senarai Permohonan Perubahan Maklumat Rawatan</h5>
                         <div class="flex gap-2"> 
