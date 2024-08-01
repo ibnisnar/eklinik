@@ -12,6 +12,32 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    @if (Auth::check() && Auth::user()->role === 'Admin')
+                        <x-nav-link :href="route('admin-ju.dashboard')" :active="request()->routeIs('admin-ju.dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                    @endif
+                    @if (Auth::check() && Auth::user()->role === 'Klinik')
+                        <x-nav-link :href="route('klinik-hq.dashboard')" :active="request()->routeIs('klinik-hq.dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                    @endif
+                    @if (Auth::check() && Auth::user()->role === 'Penyemak')
+                        <x-nav-link :href="route('penyemak.dashboard')" :active="request()->routeIs('penyemak.dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                    @endif
+                    @if (Auth::check() && Auth::user()->role === 'Penyokong')
+                        <x-nav-link :href="route('penyokong.dashboard')" :active="request()->routeIs('penyokong.dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                    @endif
+                    @if (Auth::check() && Auth::user()->role === 'Doctor')
+                        <x-nav-link :href="route('doctor.dashboard')" :active="request()->routeIs('doctor.dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                    @endif
+
                     <x-nav-link :href="route('laman-utama')" :active="request()->routeIs('laman-utama')">
                         {{ __('Laman Utama') }}
                     </x-nav-link>
@@ -23,24 +49,6 @@
                     <x-nav-link :href="route('senarai-permohonan')" :active="request()->routeIs('senarai-permohonan')">
                         {{ __('Senarai Permohonan') }}
                     </x-nav-link>
-
-                    @if (Auth::check() && Auth::user()->role === 'Pelulus BSM')
-                        <x-nav-link :href="route('pelulus-bsm')" :active="request()->routeIs('pelulus-bsm')">
-                            {{ __('Pelulus BSM') }}
-                        </x-nav-link>
-                    @endif
-
-                    @if (Auth::check() && Auth::user()->role === 'Penyemak BSM')
-                        <x-nav-link :href="route('penyemak-bsm')" :active="request()->routeIs('penyemak-bsm')">
-                            {{ __('Penyemak BSM') }}
-                        </x-nav-link>
-                    @endif
-
-                    @if (Auth::check() && Auth::user()->role === 'Agensi')
-                        <x-nav-link :href="route('agensi')" :active="request()->routeIs('agensi')">
-                            {{ __('Agensi') }}
-                        </x-nav-link>
-                    @endif
                 </div>
             </div>
 
@@ -64,7 +72,46 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('senarai-profil-bod')">
+                        @if (Auth::check() && Auth::user()->role === 'Klinik')
+                            <x-dropdown-link :href="url('/klinik/senarai-permohonan-penambahan')">
+                                {{ __('Penambahan Rawatan') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="url('/klinik/senarai-permohonan-perubahan')">
+                                {{ __('Perubahan Rawatan') }}
+                            </x-dropdown-link>
+                        @endif
+
+                        @if (Auth::check() && Auth::user()->role === 'Penyemak')
+                            <x-dropdown-link :href="url('/penyemak/senarai-klinik')">
+                                {{ __('Pengurusan Klinik') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="url('/penyemak/senarai-pengguna-klinik')">
+                                {{ __('Pengurusan Pengguna Klinik') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="url('/penyemak/senarai-caj-rundingan')">
+                                {{ __('Pengurusan Caj Rundingan') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="url('/penyemak/senarai-rawatan')">
+                                {{ __('Pengurusan Rawatan') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="url('/penyemak/senarai-ubatan')">
+                                {{ __('Pengurusan Ubatan') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="url('/penyemak/senarai-ujian-makmal')">
+                                {{ __('Pengurusan Ujian Makmal') }}
+                            </x-dropdown-link>
+                        @endif
+
+
+                        @if (Auth::check() && Auth::user()->role === 'Penyokong')
+                            <x-dropdown-link :href="url('/penyokong/senarai-klinik')">
+                                {{ __('Pengurusan Klinik') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="url('/penyokong/senarai-pengguna-klinik')">
+                                {{ __('Pengurusan Pengguna Klinik') }}
+                            </x-dropdown-link>
+                        @endif
+                        <!-- <x-dropdown-link :href="route('senarai-profil-bod')">
                             {{ __('Senarai BOD') }}
                         </x-dropdown-link>
                         <x-dropdown-link :href="route('senarai-klinik')">
@@ -93,7 +140,7 @@
                         </x-dropdown-link>
                         <x-dropdown-link :href="route('senarai-permohonan-maklumat-rawatan')">
                             {{ __('Senarai Permohonan Maklumat Rawatan') }}
-                        </x-dropdown-link>
+                        </x-dropdown-link> -->
                         <!-- <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link> -->

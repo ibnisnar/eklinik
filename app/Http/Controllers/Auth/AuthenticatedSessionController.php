@@ -28,7 +28,34 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('laman-utama', absolute: false));
+        // Redirect based on role
+        $role = Auth::user()->role;
+
+        switch ($role) {
+            case 'Admin':
+                $redirectTo = '/admin-ju/senarai-profil-bod';
+                break;
+            case 'Agensi':
+                $redirectTo = '/agensi/senarai-permohonan-maklumat-rawatan';
+                break;
+            case 'Klinik':
+                $redirectTo = '/klinik-hq/dashboard';
+                break;
+            case 'Penyemak':
+                $redirectTo = '/penyemak/dashboard';
+                break;
+            case 'Penyokong':
+                $redirectTo = '/penyokong/dashboard';
+                break;
+            case 'Doctor':
+                $redirectTo = '/doctor/dashboard';
+                break;
+            default:
+                $redirectTo = '/laman-utama'; // Fallback URL
+                break;
+        }
+
+        return redirect()->intended($redirectTo);
     }
 
     /**

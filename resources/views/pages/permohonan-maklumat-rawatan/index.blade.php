@@ -21,7 +21,7 @@
                         <div class="flow-root">
                             <div class="relative rounded">
                                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <thead class="text-xs text-gray-700 uppercase bg-white bg-opacity-30 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-30  dark:border-gray-700 dark:text-gray-400  sm:rounded-lg">
                                         <tr>
                                             <th scope="col" class="px-6 py-3">
                                                 Pemohon
@@ -38,7 +38,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="accordion-collapse" data-accordion="collapse">
-                                        <tr id="tanggungan-heading-{{ $penambahan->id }}" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                        <tr id="tanggungan-heading-{{ $penambahan->id }}" class="hover:bg-white hover:bg-opacity-30 dark:hover:bg-gray-800 dark:hover:bg-opacity-30">
                                             <th scope="row" class="px-6 py-4">
                                                 {{ $penambahan->users->name }}
                                             </th>
@@ -64,7 +64,7 @@
                                                 </div>
                                                 <div class="relative rounded">
                                                     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                        <thead class="text-xs text-gray-700 uppercase bg-white bg-opacity-30 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-30  dark:border-gray-700 dark:text-gray-400  sm:rounded-lg">
                                                             <tr>
                                                                 <th scope="col" class="px-6 py-3">
                                                                     Bill
@@ -82,7 +82,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach($keterangan as $item)
-                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                <tr class="hover:bg-white hover:bg-opacity-30 dark:hover:bg-gray-800 dark:hover:bg-opacity-30">
                                                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                                         {{ ++$countKeterangan }}
                                                                     </th>
@@ -191,7 +191,7 @@
                         <div class="flow-root">
                             <div class="relative rounded">
                                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <thead class="text-xs text-gray-700 uppercase bg-white bg-opacity-30 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-30  dark:border-gray-700 dark:text-gray-400  sm:rounded-lg">
                                         <tr>
                                             <th scope="col" class="px-6 py-3">
                                                 Pemohon
@@ -208,7 +208,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="accordion-collapse" data-accordion="collapse">
-                                        <tr id="tanggungan-heading-{{ $perubahan->id }}" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                        <tr id="tanggungan-heading-{{ $perubahan->id }}" class="hover:bg-white hover:bg-opacity-30 dark:hover:bg-gray-800 dark:hover:bg-opacity-30">
                                             <th scope="row" class="px-6 py-4">
                                                 {{ $perubahan->users->name }}
                                             </th>
@@ -234,7 +234,7 @@
                                                 </div>
                                                 <div class="relative rounded">
                                                     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                        <thead class="text-xs text-gray-700 uppercase bg-white bg-opacity-30 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-30  dark:border-gray-700 dark:text-gray-400  sm:rounded-lg">
                                                             <tr>
                                                                 <th scope="col" class="px-6 py-3">
                                                                     Bill
@@ -252,7 +252,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach($keterangan as $item)
-                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                <tr class="hover:bg-white hover:bg-opacity-30 dark:hover:bg-gray-800 dark:hover:bg-opacity-30">
                                                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                                         {{ ++$countKeterangan }}
                                                                     </th>
@@ -382,7 +382,7 @@
                     <div class="flow-root">
                         <div class="relative rounded">
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-white bg-opacity-30 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-30  dark:border-gray-700 dark:text-gray-400  sm:rounded-lg">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Bill
@@ -410,7 +410,7 @@
                                         </tr>
                                     @else
                                         @foreach($listPenambahan as $penambahan)
-                                            <tr id="tanggungan-heading-{{ $penambahan->id }}" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                            <tr id="tanggungan-heading-{{ $penambahan->id }}" class="hover:bg-white hover:bg-opacity-30 dark:hover:bg-gray-800 dark:hover:bg-opacity-30">
                                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     {{++$countPenambahan}}
                                                 </th>
@@ -521,7 +521,7 @@
                     <div class="flow-root">
                         <div class="relative rounded">
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-white bg-opacity-30 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-30  dark:border-gray-700 dark:text-gray-400  sm:rounded-lg">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Bill
@@ -549,7 +549,7 @@
                                         </tr>
                                     @else
                                         @foreach($listPerubahan as $perubahan)
-                                            <tr id="tanggungan-heading-{{ $perubahan->id }}" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                            <tr id="tanggungan-heading-{{ $perubahan->id }}" class="hover:bg-white hover:bg-opacity-30 dark:hover:bg-gray-800 dark:hover:bg-opacity-30">
                                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     {{++$countPerubahan}}
                                                 </th>

@@ -19,15 +19,15 @@
                                 <div class="grid gap-6 md:grid-cols-2">
                                     <div>
                                         <label for="bod_dependents_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
-                                        <input type="text" id="bod_dependents_name" name="bod_dependents_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                        <input type="text" id="bod_dependents_name" name="bod_dependents_name" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                                     </div>
                                     <div>
                                         <label for="bod_dependents_ic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No. Pengenalan</label>
-                                        <input type="text" id="bod_dependents_ic" name="bod_dependents_ic" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                        <input type="text" id="bod_dependents_ic" name="bod_dependents_ic" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                                     </div>
                                     <div>
                                         <label for="bod_dependents_age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Umur</label>
-                                        <input type="text" id="bod_dependents_age" name="bod_dependents_age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                        <input type="text" id="bod_dependents_age" name="bod_dependents_age" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                                     </div>
                                     <div>
                                         <label for="bod_dependents_relations" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hubungan</label>
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="mt-6">
                                     <label for="bod_dependents_remark" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lain-lain</label>
-                                    <textarea id="bod_dependents_remark" name="bod_dependents_remark" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
+                                    <textarea id="bod_dependents_remark" name="bod_dependents_remark" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-transparent dark:bg-transparent rounded-lg border border-gray-600 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
                                 </div>
 
                                 <div class="mt-6 flex justify-end">
@@ -84,7 +84,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="accordion-collapse" data-accordion="collapse">
-                                    <tr id="tanggungan-heading-{{ $malumatBOD->id }}" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <tr id="tanggungan-heading-{{ $malumatBOD->id }}">
                                         <td class="px-6 py-4">
                                             {{ $malumatBOD->bod_dependents_name }}
                                         </td>
@@ -100,7 +100,7 @@
                                         </td>
                                         <td class="px-6 py-4 flex gap-2 justify-end">
                                             <!-- Kemaskini Profil -->
-                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" x-data="" href="{{ route('senarai-profil-bod', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" x-data="" href="{{ route('admin-ju.dashboard', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
                                                 </svg>
@@ -112,7 +112,7 @@
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Lihat Profil -->
-                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
                                                     <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
@@ -125,7 +125,7 @@
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Tanggungan Profil -->
-                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
                                                 </svg>
@@ -137,7 +137,7 @@
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Padam Profil -->
-                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
                                                 </svg>
@@ -162,8 +162,11 @@
                                             </div>
                                             <div class="relative rounded">
                                                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                    <thead class="text-xs text-gray-700 uppercase bg-white bg-opacity-30 shadow-sm sm:rounded-lg dark:bg-gray-800 dark:bg-opacity-30  dark:border-gray-700 dark:text-gray-400  sm:rounded-lg">
                                                         <tr>
+                                                            <th scope="col" class="px-6 py-3">
+                                                                Bill
+                                                            </th>
                                                             <th scope="col" class="px-6 py-3">
                                                                 Nama Tanggungan
                                                             </th>
@@ -187,7 +190,7 @@
                                                             </tr>
                                                         @else
                                                             @foreach($tanggunganBOD as $tanggungan)
-                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                <tr>
                                                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                                         {{ ++$countTanggungan }}
                                                                     </th>
@@ -227,15 +230,15 @@
                                                                                 <div class="grid gap-6 md:grid-cols-2">
                                                                                     <div>
                                                                                         <label for="bod_dependents_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
-                                                                                        <input type="text" id="bod_dependents_name" name="bod_dependents_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $tanggungan->bod_dependents_name }}" />
+                                                                                        <input type="text" id="bod_dependents_name" name="bod_dependents_name" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $tanggungan->bod_dependents_name }}" />
                                                                                     </div>
                                                                                     <div>
                                                                                         <label for="bod_dependents_ic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No. Pengenalan</label>
-                                                                                        <input type="text" id="bod_dependents_ic" name="bod_dependents_ic" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $tanggungan->bod_dependents_ic }}" />
+                                                                                        <input type="text" id="bod_dependents_ic" name="bod_dependents_ic" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $tanggungan->bod_dependents_ic }}" />
                                                                                     </div>
                                                                                     <div>
                                                                                         <label for="bod_dependents_age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Umur</label>
-                                                                                        <input type="text" id="bod_dependents_age" name="bod_dependents_age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $tanggungan->bod_dependents_age }}"/>
+                                                                                        <input type="text" id="bod_dependents_age" name="bod_dependents_age" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $tanggungan->bod_dependents_age }}"/>
                                                                                     </div>
                                                                                     <div>
                                                                                         <label for="bod_dependents_relations" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hubungan</label>
@@ -257,7 +260,7 @@
                                                                                 </div>
                                                                                 <div class="mt-6">
                                                                                     <label for="bod_dependents_remark" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lain-lain</label>
-                                                                                    <textarea id="bod_dependents_remark" name="bod_dependents_remark" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>{{ $tanggungan->bod_dependents_remark }}</textarea>
+                                                                                    <textarea id="bod_dependents_remark" name="bod_dependents_remark" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-transparent dark:bg-transparent rounded-lg border border-gray-600 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>{{ $tanggungan->bod_dependents_remark }}</textarea>
                                                                                 </div>
 
                                                                                 <div class="mt-6 flex justify-end">
@@ -387,7 +390,7 @@
                                                 </table>
                                             </div>
                                             <div class="mt-6 flex justify-end">
-                                                <a href="{{ route('senarai-profil-bod') }}" class="inline-flex items-center px-4 py-2 bg-white dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
+                                                <a href="{{ route('admin-ju.dashboard') }}" class="inline-flex items-center px-4 py-2 bg-white dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
                                                     {{ __('Kembali') }}
                                                 </a>
                                             </div>
@@ -442,7 +445,7 @@
                                         </td>
                                         <td class="px-6 py-4 flex gap-2 justify-end">
                                             <!-- Kemaskini Profil -->
-                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" x-data="" href="{{ route('senarai-profil-bod', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" x-data="" href="{{ route('admin-ju.dashboard', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
                                                 </svg>
@@ -454,7 +457,7 @@
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Lihat Profil -->
-                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
                                                     <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
@@ -467,7 +470,7 @@
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Tanggungan Profil -->
-                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
                                                 </svg>
@@ -479,7 +482,7 @@
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Padam Profil -->
-                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
                                                 </svg>
@@ -503,32 +506,32 @@
                                                 <div class="grid gap-6 md:grid-cols-2">
                                                     <div>
                                                         <label for="bod_staff_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No. Pekerja</label>
-                                                        <input type="text" id="bod_staff_id" name="bod_staff_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $malumatBOD->bod_staff_id }}" />
+                                                        <input type="text" id="bod_staff_id" name="bod_staff_id" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $malumatBOD->bod_staff_id }}" />
                                                     </div>
                                                     <div>
                                                         <label for="bod_dependents_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
-                                                        <input type="text" id="bod_dependents_name" name="bod_dependents_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $malumatBOD->bod_dependents_name }}"/>
+                                                        <input type="text" id="bod_dependents_name" name="bod_dependents_name" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $malumatBOD->bod_dependents_name }}"/>
                                                     </div>
                                                     <div>
                                                         <label for="bod_ic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No. Pengenalan</label>
-                                                        <input type="text" id="bod_ic" name="bod_ic" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $malumatBOD->bod_ic }}"/>
+                                                        <input type="text" id="bod_ic" name="bod_ic" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $malumatBOD->bod_ic }}"/>
                                                     </div>
                                                     <div>
                                                         <label for="bod_phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No. Telefon</label>
-                                                        <input type="text" id="bod_phone" name="bod_phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $malumatBOD->bod_phone }}"/>
+                                                        <input type="text" id="bod_phone" name="bod_phone" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $malumatBOD->bod_phone }}"/>
                                                     </div>
                                                     <div>
                                                         <label for="bod_address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
-                                                        <textarea id="bod_address" name="bod_address" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>{{ $malumatBOD->bod_address }}</textarea>
+                                                        <textarea id="bod_address" name="bod_address" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-transparent dark:bg-transparent rounded-lg border border-gray-600 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>{{ $malumatBOD->bod_address }}</textarea>
                                                     </div>
                                                     <div>
                                                         <label for="bod_email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                                        <input type="email" id="bod_email" name="bod_email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $malumatBOD->bod_email }}"/>
+                                                        <input type="email" id="bod_email" name="bod_email" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $malumatBOD->bod_email }}"/>
                                                     </div>
                                                 </div>
 
                                                 <div class="mt-6 flex justify-end">
-                                                    <a href="{{ route('senarai-profil-bod') }}" class="inline-flex items-center px-4 py-2 bg-white dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
+                                                    <a href="{{ route('admin-ju.dashboard') }}" class="inline-flex items-center px-4 py-2 bg-white dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
                                                         {{ __('Kembali') }}
                                                     </a>
 
@@ -588,7 +591,7 @@
                                         </td>
                                         <td class="px-6 py-4 flex gap-2 justify-end">
                                             <!-- Kemaskini Profil -->
-                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
                                                 </svg>
@@ -600,7 +603,7 @@
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Lihat Profil -->
-                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
                                                     <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
@@ -613,7 +616,7 @@
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Tanggungan Profil -->
-                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
                                                 </svg>
@@ -625,7 +628,7 @@
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Padam Profil -->
-                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
                                                 </svg>
@@ -638,7 +641,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="text-center odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <tr class="text-center bg-transparent border-b dark:border-gray-700">
                                         <td colspan="5" class="p-2 text-left">
                                             <div class="text-left p-6">
                                                 <h2 class="text-lg mb-6 font-medium text-gray-900 dark:text-gray-100">
@@ -702,7 +705,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="mt-6 flex justify-end">
-                                                    <a href="{{ route('senarai-profil-bod') }}" class="inline-flex items-center px-4 py-2 bg-white dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
+                                                    <a href="{{ route('admin-ju.dashboard') }}" class="inline-flex items-center px-4 py-2 bg-white dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
                                                         {{ __('Kembali') }}
                                                     </a>    
                                                 </div>
@@ -742,7 +745,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="accordion-collapse" data-accordion="collapse">
-                                    <tr id="tanggungan-heading-{{ $malumatBOD->id }}" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <tr id="tanggungan-heading-{{ $malumatBOD->id }}">
                                         <td class="px-6 py-4">
                                             {{ $malumatBOD->bod_dependents_name }}
                                         </td>
@@ -758,7 +761,7 @@
                                         </td>
                                         <td class="px-6 py-4 flex gap-2 justify-end">
                                             <!-- Kemaskini Profil -->
-                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="kemaskini-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['kemaskini' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
                                                 </svg>
@@ -770,7 +773,7 @@
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Lihat Profil -->
-                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="lihat-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['profil' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
                                                     <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
@@ -783,7 +786,7 @@
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Tanggungan Profil -->
-                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="tanggungan-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['idpekerja' => $malumatBOD->id ]) }}" class="inline-flex items-center gap-2 text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
                                                 </svg>
@@ -795,7 +798,7 @@
                                                 <div data-popper-arrow></div>
                                             </div>
                                             <!-- Padam Profil -->
-                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                            <a data-popover-target="padam-profil-{{ $malumatBOD->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['hapus' => $malumatBOD->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                 <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
                                                 </svg>
@@ -808,7 +811,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="text-center odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <tr class="text-center bg-transparent border-b dark:border-gray-700">
                                         <td colspan="5" class="p-2 text-left">
                                             <form method="post" action="{{ route('delete.bod') }}" class="text-left p-6">
                                                 @csrf
@@ -828,7 +831,7 @@
                                                         name="bod_staff_id"
                                                         type="text"
                                                         class="mt-1 block w-3/4"
-                                                        placeholder="{{ $malumatBOD->bod_staff_id }}"
+                                                        placeholder="ID Pekerja"
                                                         required
                                                     />
 
@@ -836,7 +839,7 @@
                                                 </div>
 
                                                 <div class="mt-6 flex justify-end">
-                                                    <a href="{{ route('senarai-profil-bod') }}" class="inline-flex items-center px-4 py-2 bg-white dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
+                                                    <a href="{{ route('admin-ju.dashboard') }}" class="inline-flex items-center px-4 py-2 bg-white dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
                                                         {{ __('Kembali') }}
                                                     </a> 
 
@@ -857,7 +860,7 @@
                     <div class="flex items-center justify-between mb-4">
                         <h5 class="text-md font-medium leading-none text-gray-900 dark:text-white">Senarai BOD</h5>
                         <div class="flex gap-2"> 
-                            <form class="flex items-center" action="{{ route('senarai-profil-bod') }}" method="GET">   
+                            <form class="flex items-center" action="{{ route('admin-ju.dashboard') }}" method="GET">   
                                 <label for="search" class="sr-only">Search</label>
                                 <div class="relative w-full">
                                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -867,7 +870,7 @@
                                     </div>
                                     <input type="text" id="search" name="carian" class="bg-transparent text-gray-900 text-sm rounded-lg focus:ring-blue-500 block w-full ps-10 p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500" placeholder="{{ request()->has('carian') ? request()->carian : 'Search' }}" required />
                                     @if(request()->has('carian'))
-                                        <a href="{{ route('senarai-profil-bod') }}" class="absolute inset-y-0 end-0 flex items-center pe-3">
+                                        <a href="{{ route('admin-ju.dashboard') }}" class="absolute inset-y-0 end-0 flex items-center pe-3">
                                             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
                                             </svg>
@@ -885,27 +888,27 @@
                                     <div class="grid gap-6 md:grid-cols-2">
                                         <div>
                                             <label for="bod_staff_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No. Pekerja</label>
-                                            <input type="text" id="bod_staff_id" name="bod_staff_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                            <input type="text" id="bod_staff_id" name="bod_staff_id" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                                         </div>
                                         <div>
                                             <label for="bod_dependents_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
-                                            <input type="text" id="bod_dependents_name" name="bod_dependents_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                            <input type="text" id="bod_dependents_name" name="bod_dependents_name" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                                         </div>
                                         <div>
                                             <label for="bod_ic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No. Pengenalan</label>
-                                            <input type="text" id="bod_ic" name="bod_ic" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                            <input type="text" id="bod_ic" name="bod_ic" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                                         </div>
                                         <div>
                                             <label for="bod_phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No. Telefon</label>
-                                            <input type="text" id="bod_phone" name="bod_phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                            <input type="text" id="bod_phone" name="bod_phone" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                                         </div>
                                         <div>
                                             <label for="bod_address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
-                                            <textarea id="bod_address" name="bod_address" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
+                                            <textarea id="bod_address" name="bod_address" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-transparent dark:bg-transparent rounded-lg border border-gray-600 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
                                         </div>
                                         <div>
                                             <label for="bod_email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                            <input type="email" id="bod_email" name="bod_email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                            <input type="email" id="bod_email" name="bod_email" class="bg-transparent dark:bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                                         </div>
                                     </div>
 
@@ -972,7 +975,7 @@
                                                 </td>
                                                 <td class="px-6 py-4 flex gap-2 justify-end">
                                                     <!-- Kemaskini Profil -->
-                                                    <a data-popover-target="kemaskini-profil-{{ $bod->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['kemaskini' => $bod->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                                    <a data-popover-target="kemaskini-profil-{{ $bod->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['kemaskini' => $bod->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
                                                         </svg>
@@ -984,7 +987,7 @@
                                                         <div data-popper-arrow></div>
                                                     </div>
                                                     <!-- Lihat Profil -->
-                                                    <a data-popover-target="lihat-profil-{{ $bod->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['profil' => $bod->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                                    <a data-popover-target="lihat-profil-{{ $bod->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['profil' => $bod->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                             <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
                                                             <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
@@ -997,7 +1000,7 @@
                                                         <div data-popper-arrow></div>
                                                     </div>
                                                     <!-- Tanggungan Profil -->
-                                                    <a data-popover-target="tanggungan-profil-{{ $bod->id }}" data-popover-placement="top" data-twe-ripple-init data-twe-ripple-color="light" href="{{ route('senarai-profil-bod', ['idpekerja' => $bod->id]) }}" class="inline-flex items-center gap-2 text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                                    <a data-popover-target="tanggungan-profil-{{ $bod->id }}" data-popover-placement="top" data-twe-ripple-init data-twe-ripple-color="light" href="{{ route('admin-ju.dashboard', ['idpekerja' => $bod->id]) }}" class="inline-flex items-center gap-2 text-gray-900 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                                         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
                                                         </svg>
@@ -1009,7 +1012,7 @@
                                                         <div data-popper-arrow></div>
                                                     </div>
                                                     <!-- Padam Profil -->
-                                                    <a data-popover-target="padam-profil-{{ $bod->id }}" data-popover-placement="top" href="{{ route('senarai-profil-bod', ['hapus' => $bod->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600">
+                                                    <a data-popover-target="padam-profil-{{ $bod->id }}" data-popover-placement="top" href="{{ route('admin-ju.dashboard', ['hapus' => $bod->id ]) }}" class="text-gray-900 focus:outline-none hover:bg-red-400 hover:border-red-700 focus:ring-4 font-medium rounded-lg text-sm p-3 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600">
                                                         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
                                                         </svg>

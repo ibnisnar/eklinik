@@ -27,9 +27,17 @@
 
             }
         </style>
+        <style>
+            .custom-background {
+                background-image: url('/assets/macos-monterey-stock-green-light-layers-5k-8k-3840x2160-5891.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        </style>
     </head>
-    <body class="font-sans antialiased gradient-bg" >
-        <div class="min-h-screen">
+    <body class="font-sans antialiased" >
+        <div class="min-h-screen custom-background">
             @if(Session::has('message'))
                 <div id="toast-message" class="fixed z-50 flex items-center w-full max-w-xs p-4 space-x-4 text-green-500 bg-white divide-x rtl:divide-x-reverse divide-gray-200 rounded-lg shadow bottom-5 left-5 dark:text-green-400 dark:divide-gray-700 space-x dark:bg-gray-800" role="alert">
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
