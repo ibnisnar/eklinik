@@ -8,17 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Ubatan extends Model
 {
     use HasFactory;
-    protected $guarded = [];
-    protected $table = 'ubatans';
-    protected $fillable = [
-        'ubatan_name',
-        'ubatan_amaun',
-        'ubatan_fk_clinic',
-        'ubatan_status',
-    ];
 
+    protected $fillable = [
+        'name',
+        'amaun',
+        'fk_clinic',
+        'status',
+    ];
+    
     public function klinik()
     {
-        return $this->belongsTo(Klinik::class, 'ubatan_fk_clinic');
+        return $this->belongsTo(Klinik::class, 'fk_clinic');
     }
 }

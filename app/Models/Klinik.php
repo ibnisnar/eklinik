@@ -8,25 +8,34 @@ use Illuminate\Database\Eloquent\Model;
 class Klinik extends Model
 {
     use HasFactory;
-    protected $guarded = [];
-    protected $table = 'kliniks';
+
     protected $fillable = [
-        'clinic_name',
-        'clinic_branch',
-        'clinic_address',
-        'clinic_ssm',
-        'clinic_type',
-        'clinic_prefix',
-        'clinic_status',
+        'name',
+        'branch',
+        'ssm',
+        'address',
+        'type',
+        'prefix',
+        'status',
     ];
 
-    public function userKliniks()
+    public function cajRundingans()
     {
-        return $this->hasMany(UserKlinik::class, 'user_clinic_fk_clinic');
+        return $this->hasMany(CajRundingan::class, 'fk_clinic');
     }
 
-    public function cajRundingan()
+    public function rawatans()
     {
-        return $this->hasMany(CajRundingan::class, 'caj_rundingan_fk_clinic');
+        return $this->hasMany(Rawatan::class, 'fk_clinic');
+    }
+
+    public function ubatans()
+    {
+        return $this->hasMany(Ubatan::class, 'fk_clinic');
+    }
+
+    public function ujianMakmals()
+    {
+        return $this->hasMany(UjianMakmal::class, 'fk_clinic');
     }
 }

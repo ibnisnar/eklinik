@@ -10,6 +10,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        @livewireStyles
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -20,24 +21,9 @@
                 document.documentElement.classList.remove('dark')
             }
         </script>
-         <style>
-            .gradient-bg {
-
-                background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);
-
-            }
-        </style>
-        <style>
-            .custom-background {
-                background-image: url('/assets/macos-monterey-stock-green-light-layers-5k-8k-3840x2160-5891.jpg');
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-position: center;
-            }
-        </style>
     </head>
-    <body class="font-sans antialiased" >
-        <div class="min-h-screen custom-background">
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @if(Session::has('message'))
                 <div id="toast-message" class="fixed z-50 flex items-center w-full max-w-xs p-4 space-x-4 text-green-500 bg-white divide-x rtl:divide-x-reverse divide-gray-200 rounded-lg shadow bottom-5 left-5 dark:text-green-400 dark:divide-gray-700 space-x dark:bg-gray-800" role="alert">
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -57,15 +43,12 @@
                     });
                 </script>
             @endif
-            <div class="sm:px-6 lg:px-8 pt-5">
-                <!-- <livewire:layout.navigation /> -->
-                @include('layouts.navigation')
-            </div>
+            <livewire:layout.navigation />
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white dark:bg-gray-800">
-                    <div class="py-4 px-4 sm:px-6 lg:px-8">
+                <header class="bg-white dark:bg-gray-800 shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
@@ -76,7 +59,6 @@
                 {{ $slot }}
             </main>
         </div>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
+        @livewireScripts
     </body>
 </html>
