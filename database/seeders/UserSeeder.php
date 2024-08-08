@@ -28,8 +28,17 @@ use App\Models\User;
         Permission::create(['name' => 'update']);
         Permission::create(['name' => 'delete']);
 
-        $role = Role::create(['name' => 'super-admin']);
-        $role->givePermissionTo(Permission::all());
+        $roleAdmin = Role::create(['name' => 'super-admin']);
+        $roleAdmin->givePermissionTo(Permission::all());
+
+        $rolePelulus = Role::create(['name' => 'pelulus']);
+        $rolePelulus->givePermissionTo(Permission::all());
+
+        $roleKlinik = Role::create(['name' => 'klinik']);
+        $roleKlinik->givePermissionTo(Permission::all());
+
+        $roleAgensi = Role::create(['name' => 'agensi']);
+        $roleAgensi->givePermissionTo(Permission::all());
 
         $user->assignRole('super-admin');
     }
